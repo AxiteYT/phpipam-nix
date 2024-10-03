@@ -37,9 +37,21 @@ in
         This adds `services.phpipam.port` to `networking.firewall.allowedTCPPorts`.
       '';
     };
+    /*
+      TODO: Add support for other web servers
+      webServer = mkOption {
+        type = types.str;
+        default = "nginx";
+        description = "Web server to use";
+      };
+    */
   };
 
   config = mkIf cfg.enable {
+    services.phpfpm = {
+      phpPackage = pkgs.php81;
+    };
+
     networking.firewall = mkIf cfg.openFirewall { allowedTCPPorts = [ cfg.port ]; };
   };
 }
