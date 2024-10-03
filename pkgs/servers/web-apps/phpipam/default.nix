@@ -31,6 +31,6 @@ stdenv.mkDerivation rec {
     homepage = "https://phpipam.net/";
     license = licenses.gpl3Only;
     platforms = platforms.unix;
-    maintainers = with maintainers; [ axiteyt ];
+    maintainers = with maintainers; [ AxiteYT ];
   };
 }
